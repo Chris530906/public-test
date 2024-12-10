@@ -5,9 +5,9 @@ resource "aws_s3_bucket" "bucket" {
 
 
  tags = {
-    Name        = "My bucket-change"
+    Name        = "My bucket-change-1"
     Environment = "Dev"
-    AMAZING_TAG = "changed"
+    AMAZING_TAG = "changed-1"
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "bucket12442" {
 
 
  tags = {
-    AMAZING_TAG = "changed-2nd"
+    AMAZING_TAG = "changed-3"
   }
 }
 
