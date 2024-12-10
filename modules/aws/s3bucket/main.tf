@@ -11,16 +11,16 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-resource "aws_s3_bucket" "bucket12442" {
-  bucket = "gdfl-4444444444444444444444444444444"
-  force_destroy = true  
+# resource "aws_s3_bucket" "bucket12442" {
+#   bucket = "gdfl-4444444444444444444444444444444"
+#   force_destroy = true  
 
 
 
- tags = {
-    AMAZING_TAG = "changed-2nd"
-  }
-}
+#  tags = {
+#     AMAZING_TAG = "changed-2nd"
+#   }
+# }
 
 # resource "aws_s3_bucket" "buckedggft122" {
 #   bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
