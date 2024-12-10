@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "bucket" {
  tags = {
     Name        = "My bucket"
     Environment = "Dev"
-    AMAZING_TAG = "changed-3"
+    AMAZING_TAG = "changed-34"
   }
 }
 
@@ -22,3 +22,13 @@ resource "aws_s3_bucket" "bucket" {
 #   }
 # }
 
+resource "aws_s3_bucket" "buckedggft122" {
+  bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
+  force_destroy = true  
+
+
+
+ tags = {
+    AMAZING_TAG = "changed-22nd"
+  }
+}
