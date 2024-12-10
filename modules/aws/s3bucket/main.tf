@@ -22,13 +22,13 @@ resource "aws_s3_bucket" "bucket12442" {
   }
 }
 
-# resource "aws_s3_bucket" "buckedggft122" {
-#   bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
-#   force_destroy = true  
+resource "aws_s3_bucket" "buckedggft122" {
+  bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
+  force_destroy = true  
 
 
 
-#  tags = {
-#     AMAZING_TAG = "changed-22nd"
-#   }
-# }
+ tags = {
+    AMAZING_TAG = "changed-22nd"
+  }
+}
