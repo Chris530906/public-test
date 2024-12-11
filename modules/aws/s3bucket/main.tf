@@ -5,22 +5,22 @@ resource "aws_s3_bucket" "bucket" {
 
 
  tags = {
-    Name        = "My bucket-change-1"
+    Name        = "My bucket-change-2"
     Environment = "Dev"
-    AMAZING_TAG = "changed-1"
+    AMAZING_TAG = "changed-2"
   }
 }
 
-# resource "aws_s3_bucket" "bucket12442" {
-#   bucket = "gdfl-4444444444444444444444444444444"
-#   force_destroy = true  
+resource "aws_s3_bucket" "bucket124422" {
+  bucket = "gdfl-55555555555555555"
+  force_destroy = true  
 
 
 
-#  tags = {
-#     AMAZING_TAG = "changed-3"
-#   }
-# }
+ tags = {
+    AMAZING_TAG = "changed-5"
+  }
+}
 
 # resource "aws_s3_bucket" "buckedggft122" {
 #   bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
