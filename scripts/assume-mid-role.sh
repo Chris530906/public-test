@@ -1,5 +1,7 @@
 #!/bin/sh
 
+temp_file=$(mktemp)
+
 aws sts get-caller-identity
 
 aws sts assume-role --role-arn "$1" --role-session-name "torque-runner"
