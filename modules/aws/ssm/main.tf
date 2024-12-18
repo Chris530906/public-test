@@ -1,5 +1,6 @@
 provider "aws" {
   region  = var.aws_region
+  profile = "test"
   # assume_role {
   #   role_arn    = var.role_arn
   # }
