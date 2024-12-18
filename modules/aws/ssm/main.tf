@@ -1,8 +1,8 @@
 provider "aws" {
   region  = var.aws_region
-  assume_role {
-    role_arn    = var.role_arn
-  }
+  # assume_role {
+  #   role_arn    = var.role_arn
+  # }
 }
 
 terraform {
@@ -14,9 +14,9 @@ terraform {
   }
 }
 
-variable "role_arn" {
-  type = string
-}
+# variable "role_arn" {
+#   type = string
+# }
 
 variable "aws_region" {
   type    = string

@@ -10,16 +10,16 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-resource "aws_s3_bucket" "bucket124422" {
-  bucket = "${var.name}-55"
-  force_destroy = true  
+# resource "aws_s3_bucket" "bucket124422" {
+#   bucket = "${var.name}-55"
+#   force_destroy = true  
 
 
 
- tags = {
-    AMAZING_TAG = "${var.name}-6"
-  }
-}
+#  tags = {
+#     AMAZING_TAG = "${var.name}-6"
+#   }
+# }
 
 # resource "aws_s3_bucket" "buckedggft122" {
 #   bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
