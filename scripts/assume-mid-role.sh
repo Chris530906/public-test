@@ -7,15 +7,17 @@ DEFAULT_REGION=$3
 
 aws sts get-caller-identity
 
+echo "temp file: $temp_file"
+
 aws sts assume-role --role-arn "$ROLE_ARN" --role-session-name "torque-runner"
 
 OUT=$(aws sts assume-role --role-arn "$ROLE_ARN" --role-session-name "torque-runner" 2>>$temp_file)
-if [[ $? -eq 0 ]]; then
-    export AWS_ACCESS_KEY_ID=$(echo $OUT | cut -d '"' -f 6)
-    export AWS_SECRET_ACCESS_KEY=$(echo $OUT | cut -d '"' -f 10)
-    export AWS_SESSION_TOKEN=$(echo $OUT | cut -d '"' -f 14)
-    rm -f $temp_file
-fi
+
+export AWS_ACCESS_KEY_ID=$(echo $OUT | cut -d '"' -f 6)
+export AWS_SECRET_ACCESS_KEY=$(echo $OUT | cut -d '"' -f 10)
+export AWS_SESSION_TOKEN=$(echo $OUT | cut -d '"' -f 14)
+rm -f $temp_file
+
 
 aws sts get-caller-identity
 
@@ -34,8 +36,3 @@ cat << EOF > /root/.aws/config
 region=$DEFAULT_REGION
 output=json
 EOF
-# echo "creds:"
-# cat "/root/.aws/config"
-# echo ""
-# echo "config:"
-# cat "/root/.aws/credentials"
