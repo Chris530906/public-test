@@ -18,6 +18,15 @@ export AWS_SECRET_ACCESS_KEY=$(echo $OUT | cut -d '"' -f 10)
 export AWS_SESSION_TOKEN=$(echo $OUT | cut -d '"' -f 14)
 rm -f $temp_file
 
+NEW_AWS_ROLE_ARN=$(aws sts get-caller-identity --query Arn)
+
+export AWS_ROLE_ARN=$NEW_AWS_ROLE_ARN
+export AWS_PROFILE=$PROFILE
+export AWS_WEB_IDENTITY_TOKEN_FILE=""
+
+echo "export AWS_PROFILE=$PROFILE" >> ~/torque-envs.sh
+echo "export AWS_ROLE_ARN=$NEW_AWS_ROLE_ARN" >> ~/torque-envs.sh
+echo 'export AWS_WEB_IDENTITY_TOKEN_FILE=""' >> ~/torque-envs.sh
 
 aws sts get-caller-identity
 
