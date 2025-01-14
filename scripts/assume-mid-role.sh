@@ -22,7 +22,7 @@ target_account=$(echo "$target_arn" | sed -n 's|.*:iam::\([0-9]*\):.*|\1|p')
 if [[ "$current_role" == "$target_role" && "$current_account" == "$target_account" ]]; then
   echo "Already in the target role ($current_role in account $current_account). Doing nothing."
   exit 0
-else
+
 
 echo "temp file: $temp_file"
 
