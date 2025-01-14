@@ -7,6 +7,23 @@ DEFAULT_REGION=$3
 
 aws sts get-caller-identity
 
+# if (ROLE_ARN -eq aws sts get-caller-identity --query Arn)
+
+current_arn=$(aws sts get-caller-identity --query Arn --output text)
+target_arn=$1
+
+current_role=$(echo "$current_arn" | sed -n 's|.*:assumed-role/\([^/]*\)/.*|\1|p')
+current_account=$(echo "$curren_arn" | sed -n 's|.*:sts::\([0-9]*\):.*|\1|p')
+
+# Extract the role name and account ID from the target ARN
+target_role=$(echo "$target_arn" | sed -n 's|.*:role/\([^/]*\)$|\1|p')
+target_account=$(echo "$target_arn" | sed -n 's|.*:iam::\([0-9]*\):.*|\1|p')
+
+if [[ "$current_role" == "$target_role" && "$current_account" == "$target_account" ]]; then
+  echo "Already in the target role ($current_role in account $current_account). Doing nothing."
+  exit 0
+else
+
 echo "temp file: $temp_file"
 
 aws sts assume-role --role-arn "$ROLE_ARN" --role-session-name "torque-runner"
