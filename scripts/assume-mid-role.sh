@@ -7,12 +7,12 @@ DEFAULT_REGION=$3
 
 aws sts get-caller-identity
 
-if (MID_ROLE_SET); then
-  if (MID_ROLE_SET -eq '1'); then
-    echo "Already in the target role ($current_role in account $current_account). Doing nothing."
-    exit 0
-  fi
+if [ "${MID_ROLE_SET}" == "1" ]; then
+  echo "Already in the target role ($current_role in account $current_account). Doing nothing."
+  exit 0
 fi
+
+echo "outside"
 # current_arn=$(aws sts get-caller-identity --query Arn --output text)
 # target_arn=$1
 
@@ -49,7 +49,7 @@ export MID_ROLE_SET='1'
 echo "export AWS_PROFILE=$PROFILE" >> ~/torque-envs.sh
 echo "export AWS_ROLE_ARN=$NEW_AWS_ROLE_ARN" >> ~/torque-envs.sh
 echo 'export AWS_WEB_IDENTITY_TOKEN_FILE=""' >> ~/torque-envs.sh
-echo 'export MID_ROLE_SET='1'' >> ~/torque-envs.sh
+echo 'export MID_ROLE_SET="1"' >> ~/torque-envs.sh
 
 aws sts get-caller-identity
 
