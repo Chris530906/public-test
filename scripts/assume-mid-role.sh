@@ -8,11 +8,10 @@ DEFAULT_REGION=$3
 aws sts get-caller-identity
 
 if [ "${MID_ROLE_SET}" == "1" ]; then
-  echo "Already in the target role ($current_role in account $current_account). Doing nothing."
-  exit 0
+  echo "Already in the target role ($ROLE_ARN). Doing nothing."
+  return
 fi
 
-echo "outside"
 # current_arn=$(aws sts get-caller-identity --query Arn --output text)
 # target_arn=$1
 
