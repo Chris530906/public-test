@@ -1,0 +1,25 @@
+spec_version: 2
+description: Workflow to show calling environment
+workflow:
+  scope: env
+  triggers:
+    - type: manual
+  labels-selector: status:Active
+# outputs:
+#   environment_output:
+#     value: '{{ .grains.show_environment.activities.deploy.commands.print.outputs.environment }}'
+grains:
+  show_environment:
+    kind: shell
+    spec:
+      agent:
+        name: 'your agent'  # fix me
+      files:
+        - source: test
+          path: scripts/labels/pause.py   # fix me
+      activities:
+        deploy:
+          commands:
+            - pip3 install requests
+            - name: my_script
+              command: 'python3 pause.py {{ .params.space_name }} {{ .bindings.environment_id }} {{ .params.torque-token }}' #add params!!!
