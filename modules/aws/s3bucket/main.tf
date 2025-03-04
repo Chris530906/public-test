@@ -10,24 +10,7 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-# resource "aws_s3_bucket" "bucket124422" {
-#   bucket = "${var.name}-55"
-#   force_destroy = true  
-
-
-
-#  tags = {
-#     AMAZING_TAG = "${var.name}-6"
-#   }
-# }
-
-# resource "aws_s3_bucket" "buckedggft122" {
-#   bucket = "gdfdgfgfgdfdfgdgflkngflkgfgdnflkdgnf"
-#   force_destroy = true  
-
-
-
-#  tags = {
-#     AMAZING_TAG = "changed-22nd"
-#   }
-# }
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.bucket.id
+  acl    = "public-read"
+}
